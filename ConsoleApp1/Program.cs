@@ -6,25 +6,22 @@ namespace ConsoleApp1
     {
         public static void Main(string[] args)
         {
-            ClassCalculation cicleCalc = new ClassCalculation();
-            Console.WriteLine("Enter cicle radius:");
-            ClassCicle circle = new ClassCicle(cicleCalc.GetValuesFromKeyboard);
-            Console.WriteLine("Your cicle radius is: " + circle.Radius);
-            double radiusTemp = circle.Radius;
-            Console.WriteLine("Circle square is " + cicleCalc.CountCicleArea(radiusTemp));
+            ClassCalculation calc = new ClassCalculation();
+            Console.WriteLine("Enter circle radius:");
+            ClassCircle circle = new ClassCircle(calc.GetValuesFromKeyboard());
+            Console.WriteLine("Your circle radius is: " + circle.Radius);
+            Console.WriteLine("Circle square is " + circle.Area);
 
-            ClassCalculation squareCalc = new ClassCalculation();
             Console.WriteLine("Enter square side:");
-            ClassSquare square = new ClassSquare(squareCalc.GetValuesFromKeyboard);
+            ClassSquare square = new ClassSquare(calc.GetValuesFromKeyboard());
             Console.WriteLine("Your square side is: " + square.Side);
-            double sideTemp = square.Side;
-            Console.WriteLine("Square area is " + squareCalc.CountSquareArea(sideTemp));
+            Console.WriteLine("Square area is " + square.Area);
 
             //find if a circle fits inside a square
-            cicleCalc.FitCircleInSquare(cicleCalc.CountCicleArea(radiusTemp), squareCalc.CountSquareArea(sideTemp));
+            calc.FitCircleInSquare(circle.Area, square.Area);
 
             //find if a square fits inside a circle
-            squareCalc.FitSquareInCircle(squareCalc.CountSquareArea(sideTemp), cicleCalc.CountCicleArea(radiusTemp));
+            calc.FitSquareInCircle(circle.Area, square.Area);
 
         }
     }

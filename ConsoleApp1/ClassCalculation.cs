@@ -6,42 +6,29 @@ namespace ConsoleApp1
 {
     class ClassCalculation
     {
-        public double GetValuesFromKeyboard
+        public double GetValuesFromKeyboard()
         {
-            get
+            double input = 0;
+            for (int i = 0; i < 3; i++)
             {
-                double input = 0;
-                double tempInput = 0;
-                for (int i = 0; i < 3; i++)
+                Boolean validation = double.TryParse(Console.ReadLine(), out input) && input > 0;
+                if (!validation && i < 3)
                 {
-                    Boolean validation = double.TryParse(Console.ReadLine(), out input) && input > 0;
-                    if (!validation && i < 3)
-                    {
-                        Console.WriteLine("Please try again");
-                    }
-                    else if (validation)
-                    {
-                        tempInput = Math.Round(input, 2);
-                    }
+                    Console.WriteLine("Please try again");
+                    continue;
                 }
-                if (input == 0)
+
+                if (validation)
                 {
-                    Random random = new Random();
-                    input = random.NextDouble(0.5, 5);
-                    tempInput = Math.Round(input, 2);
+                    break;
                 }
-                return tempInput;
             }
-        }
-        public double CountCicleArea(double radius) 
-        {
-            double Square = Math.PI * Math.Pow(radius, 2);
-            return Math.Round(Square, 2);
-        }
-        public double CountSquareArea(double side)
-        {
-            double Square = Math.Pow(side, 2);
-            return Math.Round(Square, 2);
+            if (input <= 0)
+            {
+                Random random = new Random();
+                input = random.NextDouble(0.5, 5);
+            }
+            return Math.Round(input, 2);
         }
         public void FitSquareInCircle(double squareArea, double circleArea)
         {

@@ -4,14 +4,14 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-   public class ClassCicle
+   public class ClassCircle
     {
         private double radius;
         public double Area 
         { 
             get 
             {
-                return Area;
+                return Math.Round((Math.PI * Math.Pow(radius, 2)), 2);
             }
         }
         public double Radius
@@ -25,9 +25,9 @@ namespace ConsoleApp1
                     radius = value;
             }
         }
-        public ClassCicle(double radius)
+        public ClassCircle(double radius)
         {
-            Radius = radius;
+            this.radius = radius;
         }
     }
 }

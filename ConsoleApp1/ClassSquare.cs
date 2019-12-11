@@ -11,7 +11,7 @@ namespace ConsoleApp1
         {
             get 
             {
-                return Area;
+               return Math.Round(Math.Pow(side, 2), 2);
             }
         }
         public double Side 
@@ -26,9 +26,9 @@ namespace ConsoleApp1
             }
         }
 
-        public ClassSquare(double s)
+        public ClassSquare(double side)
         {
-            side = s;
+            this.side = side;
         }
 
         
