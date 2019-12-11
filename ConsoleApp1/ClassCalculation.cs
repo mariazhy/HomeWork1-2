@@ -30,7 +30,7 @@ namespace ConsoleApp1
             }
             return Math.Round(input, 2);
         }
-        public void FitSquareInCircle(double squareArea, double circleArea)
+        public void FitSquareInCircle(double circleArea, double squareArea)
         {
             if (Math.Sqrt(circleArea / Math.PI) >= Math.Sqrt(squareArea/2))
             {
